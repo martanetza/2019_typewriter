@@ -11,17 +11,19 @@ function removeText() {
   writeText();
 }
 function writeText() {
-  let i;
-  for (i = 0; i <= text.length; i++) {
+  for (let i = 0; i <= text.length; i++) {
     (function(i) {
       setTimeout(function() {
         document.querySelector("#typewriter").textContent = text.slice(0, i);
-        let snd = document.getElementById("typekey2");
+        let snd = document.getElementById("typekey1");
         snd.play();
         if (text[i] === " ") {
-          let sndSpace = document.getElementById("typespace");
-          sndSpace.play();
-          snd.stop();
+          let snd = document.getElementById("typespace");
+          snd.play();
+        }
+        console.log(i);
+        if (i == text.length) {
+          writeText();
         }
       }, 400 * i);
     })(i);
