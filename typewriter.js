@@ -39,12 +39,13 @@ function writeText() {
       document.querySelector("#typewriter").textContent = text.slice(0, i);
       i++;
       let snd = document.getElementById("typekey1");
+      snd.play();
       if (text[i] === " ") {
         let snd = document.getElementById("typespace");
         snd.play();
       }
       console.log(i);
-      if (i == text.length) {
+      if (i > text.length) {
         i = 0;
       }
       writeText();
